@@ -1,0 +1,87 @@
+http://localhost:8000/app1/register
+{"name":"hussein","age":25,"favouritesports":"football","user_name":"huss","password":"1234"}
+{
+    "result": "ok"
+}
+======================================================
+http://localhost:8000/app1/login
+{"user_name":"huss","password":"1234"}
+{
+    "result": "ok",
+    "data": {
+        "id": 1,
+        "name": "hussein",
+        "age": 25,
+        "favourite": "football"
+    }
+}
+======================================================
+http://localhost:8000/app1/getAllsections
+{}
+{
+    "result": "ok",
+    "data": [
+        {
+            "id": 1,
+            "name": "Sports",
+            "img": "http://localhost:8000//media//section_img//ppp1.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Feed",
+            "img": "http://localhost:8000//media//section_img//pp.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Physical",
+            "img": "http://localhost:8000//media//section_img//ppp1_vhrAFwH.jpg"
+        }
+    ]
+}
+=======================================================================
+http://localhost:8000/app1/getAllSports
+{}
+{
+    "result": "ok",
+    "data": [
+        {
+            "id": 1,
+            "name": "football",
+            "type": "foot",
+            "img": "http://localhost:8000//media//section_img//Windows_Server_2019-2023-11-19-22-56-41.png"
+        },
+        {
+            "id": 2,
+            "name": "gulf",
+            "type": "hand",
+            "img": "http://localhost:8000//media//section_img//ppp1.jpg"
+        }
+    ]
+}
+======================================================
+http://localhost:8000/app1/getsportsById
+{"id":1}
+{
+    "result": "ok",
+    "data": [
+        {
+            "name": "football",
+            "imgs": [
+                "http://localhost:8000//media//section_img//ppp1.jpg",
+                "http://localhost:8000//media//section_img//ppp1_NGD8dRB.jpg",
+                "http://localhost:8000//media//section_img//ppp1_7c5gIrO.jpg"
+            ],
+            "videos": [],
+            "advices": [
+                "ddd1",
+                "ddd2"
+            ],
+            "clubs": [
+                {
+                    "name": "club1",
+                    "location": "alzahra"
+                }
+            ]
+        }
+    ]
+}
