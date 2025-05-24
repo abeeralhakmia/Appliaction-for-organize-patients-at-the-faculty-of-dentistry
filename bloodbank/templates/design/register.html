@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Account</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include AOS CSS (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- Include Parsley CSS (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.css">
+    <!-- Include your custom CSS -->
+    <link rel="stylesheet" href="../resources/static/styles/register.css" />
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-danger">
+    <a class="navbar-brand text-white" href="home.html" style="font-size:30px ">🩸</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link text-white" href="home.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid mt-5">
+    <div class="card mx-auto" style="width: 100%;" data-aos="fade-up">
+        <div class="card-body" style="paddig-bottom: 30px">
+            <h5 class="card-title text-center">Register Account</h5>
+            <form id="registrationForm" class="needs-validation" novalidate>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" required data-parsley-type="email">
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control" id="firstName" required>
+                            <div class="invalid-feedback">Please enter your first name.</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" required>
+                            <div class="invalid-feedback">Please enter your last name.</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="middleName">Middle Name</label>
+                            <input type="text" class="form-control" id="middleName" required>
+                            <div class="invalid-feedback">Please enter your middle name.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" class="form-control" id="age" required>
+                            <div class="invalid-feedback">Please enter your age.</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="motherName">Mother's Name</label>
+                            <input type="text" class="form-control" id="motherName" required>
+                            <div class="invalid-feedback">Please enter your mother's name.</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="nationalNumber">National Number</label>
+                            <input type="text" class="form-control" id="nationalNumber" required>
+                            <div class="invalid-feedback">Please enter your national number.</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone Number</label>
+                            <input type="tel" class="form-control" id="phoneNumber" required>
+                            <div class="invalid-feedback">Please enter a valid phone number.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="bloodType">Blood Type</label>
+                            <select class="form-control" id="bloodType" required>
+                                <option value="">Choose...</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="Not Specified">Not Specified</option>
+                            </select>
+                            <div class="invalid-feedback">Please select a blood type.</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="birthDate">Birth Date</label>
+                            <input type="date" class="form-control" id="birthDate" required>
+                            <div class="invalid-feedback">Please enter your birth date.</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <div class="form-check gender">
+                                <input class="form-check-input" type="radio" name="gender" id="male" value="male"
+                                       required>
+                                <label class="form-check-label" for="male">
+                                    Male
+                                </label>
+                            </div>
+                            <div class="form-check gender">
+                                <input class="form-check-input" type="radio" name="gender" id="female" value="female"
+                                       required>
+                                <label class="form-check-label" for="female">
+                                    Female
+                                </label>
+                                <div class="invalid-feedback">Please select your gender.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Our Site. All rights reserved.</p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
+]
+<script>
+    AOS.init();
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#registrationForm').parsley();
+    });
+
+</script>
+
+</body>
+</html>

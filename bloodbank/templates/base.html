@@ -1,0 +1,167 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>
+        {% block title %}
+            Blood Bank
+        {% endblock title %}
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    {% block css %}
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+              integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
+              crossorigin="anonymous"
+              referrerpolicy="no-referrer"/>
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+              integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+              crossorigin="anonymous"
+              referrerpolicy="no-referrer"/>
+        <!-- Include AOS CSS (optional) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+        <!-- Include Parsley CSS (optional) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.css">
+        <!-- Your stuff: Third-party CSS libraries go here -->
+        <!-- This file stores project-specific CSS -->
+        <link href="{% static 'css/main.css' %}" rel="stylesheet"/>
+    {% endblock css %}
+    {% block inline_css %}
+
+    {% endblock inline_css %}
+    <!-- Le javascript
+================================================== -->
+    {# Placed at the top of the document so pages load faster with defer #}
+    {% block javascript %}
+        <!-- Bootstrap JS -->
+        <script defer
+                src="https://code.jquery.com/jquery-3.7.1.min.js"
+                integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+                crossorigin="anonymous"></script>
+        <script defer
+                src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+                integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+                crossorigin="anonymous"
+                referrerpolicy="no-referrer"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
+                integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
+                crossorigin="anonymous"
+                referrerpolicy="no-referrer"></script>
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
+        <!-- Your stuff: Third-party javascript libraries go here -->
+        <!-- place project specific Javascript in this file -->
+        <script defer src="{% static 'js/main.js' %}"></script>
+        {% block extra_js %}
+        {% endblock extra_js %}
+    {% endblock javascript %}
+</head>
+<body>
+<div class="mb-1">
+    <nav class="navbar navbar-expand-md navbar-light bg-danger">
+        <div class="container-fluid">
+            <button class="navbar-toggler navbar-toggler-right"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="{% url "core:home" %}">🩸 Home</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        {% url "core:home" as home_url %}
+                        <a class="nav-link{% if request.path == home_url %} active{% endif %}"
+                           href="{{ home_url }}">Home <span
+                                class="visually-hidden">(current)</span></a>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            {% url "logout" as logout_url %}
+                            <a class="nav-link{% if request.path == logout_url %} active{% endif %}"
+                               href="{{ logout_url }}">Sign Out</a>
+                        </li>
+                        {% if request.user.is_nurse %}
+                            {% url "core:schedule" as schedule %}
+                            <a class="nav-link{% if request.path == schedule %} active{% endif %}"
+                               href="{{ schedule }}">Schedule</a>
+                        {% elif request.user.is_donor %}
+                            {% url "core:reserve" as reserve %}
+                            <a class="nav-link{% if request.path == reserve %} active{% endif %}"
+                               href="{{ reserve }}">Reserve</a>
+                        {% endif %}
+                    {% else %}
+                        {% url "core:register_donor" as register_url %}
+                        <li class="nav-item">
+                            <a id="sign-up-link"
+                               class="nav-link{% if request.path == register_url %} active{% endif %}"
+                               href="{{ register_url }}">Sign Up Donor</a>
+                        </li>
+                        {% url "core:register_nurse" as register_nurse_url %}
+                        <li class="nav-item">
+                            <a id="sign-up-link"
+                               class="nav-link{% if request.path == register_nurse_url %} active{% endif %}"
+                               href="{{ register_nurse_url }}">Sign Up Nurse</a>
+                        </li>
+                        <li class="nav-item">
+                            {% url "login" as login_url %}
+                            <a id="log-in-link"
+                               class="nav-link{% if request.path == login_url %} active{% endif %}"
+                               href="{{ login_url }}">Sign In</a>
+                        </li>
+                    {% endif %}
+                    {% block extra_nav %}
+                    {% endblock extra_nav %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="container">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-dismissible {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                {{ message }}
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="alert"
+                        aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% block content %}
+    {% endblock content %}
+</div>
+
+<div class="container-fluid footer nav justify-content-center border-bottom pt-3 mt-4">
+    <p class="text-center">&copy; 2024 Our Site. All rights reserved.</p>
+</div>
+<!-- /container -->
+{% block modal %}
+{% endblock modal %}
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        AOS.init();
+    })
+</script>
+{% block inline_javascript %}
+    {% comment %}
+    Script tags with only code, no src (defer by default). To run
+    with a "defer" so that you run inline code:
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        /* Run whatever you want */
+      });
+    </script>
+      {% endcomment %}
+{% endblock inline_javascript %}
+</body>
+</html>

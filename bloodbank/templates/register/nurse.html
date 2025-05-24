@@ -1,0 +1,46 @@
+{% extends "form.html" %}
+{% load static %}
+
+{% block inline_css %}
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-image: url('{% static "img/register_form_bg.png" %}');
+            height: 100px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+            backdrop-filter: blur(5px); /* Apply blur effect */
+            height: max-content;
+        }
+
+        .card-body {
+            margin-bottom: 50px;
+        }
+
+        .card-title {
+            color: #333;
+        }
+    </style>
+{% endblock inline_css %}
+
+{% block content %}
+    <div class="container-fluid mt-5">
+        <div class="card mx-auto" style="width: 100%;" data-aos="fade-up">
+            <div class="card-body">
+                <h5 class="card-title text-center">Register Account</h5>
+                {{ block.super }}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

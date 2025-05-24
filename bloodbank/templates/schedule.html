@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="records">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for obj in object_list %}
+                <tr>
+                    <th scope="row">{{ obj.pk }}</th>
+                    <td>{{ obj.donor.first_name }}</td>
+                    <td>{{ obj.donor.last_name }}</td>
+                    <td>{{ obj.donor.email }}</td>
+                    <td>{{ obj.donor.phone_number }}</td>
+                    <td>
+                        <a href="{% url "core:reservation_accept" obj.pk %}" class="btn btn-success">Mark Arrived &
+                            Process</a>
+                        <a href="{% url "core:reservation_reject" obj.pk %}" class="btn btn-danger">Mark Missed</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

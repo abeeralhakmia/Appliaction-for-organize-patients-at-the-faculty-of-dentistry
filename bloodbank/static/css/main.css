@@ -1,0 +1,49 @@
+.footer {
+    background-color: #dc3545; /* Red footer color */
+    color: white; /* Text color for footer */
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.register-button {
+    margin-top: 0px;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 80px;
+    width: 45%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay with 50% opacity */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding: 50px;
+    padding-top: 170px;
+    margin-left: 30%;
+}
+
+table {
+    text-align: center;
+    width: 70%;
+    margin: 10px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+    backdrop-filter: blur(5px); /* Apply blur effect */
+    height: max-content;
+}
+
+.records {
+    text-align: center;
+}

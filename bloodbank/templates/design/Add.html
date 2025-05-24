@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include AOS CSS (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- Include Parsley CSS (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.css">
+    <!-- Include your custom CSS -->
+    <link rel="stylesheet" href="../resources/static/styles/Add.css" />
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-danger">
+    <a class="navbar-brand text-white" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="image">
+    <h1 class="h3-info"><b>📝 Personal Information :</b></h1> 
+    <form action="" method="get">
+        <label for="fullname">Full Name :</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="fullname" id="fullname" autofocus required placeholder="   first   father  last"><br>
+        <label for="mother">Mother Name :</label>
+        <input type="text" name="mother" id="mother" required><br><br>
+        <label for="birth">Birth Date :</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="date" name="birth" id="birth" required><br><br>
+        <label for="graduation">Graduation Year :</label>&nbsp;&nbsp;&nbsp;
+        <input type="number" name="graduation" id="graduation" min="1980" max="2022" placeholder="1980" required><br>
+        <label for="certificate">Certificate :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="certificate" id="certificate" required><br><br>
+        <label for="employment">Determine Date of Employment :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="date" name="employment" id="employment" required><br><br>
+        <label for="available">You Are Available :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="available" value="yes" id="yes" required>
+        <label for="yes">Yes</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="available" value="no" id="no" required>
+        <label for="no">No</label><br><br>
+
+        <input type="submit" value="Add Employee" class="button1" onclick="">
+    </form>
+    </div>
+
+
+
+<div class="footer">
+    <p>&copy; 2024 Our Site. All rights reserved.</p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
+
+<script>
+    AOS.init();
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#registrationForm').parsley();
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="dark-overlay">
+        <h1 class="text-white text-center">Give Blood. Feel Good. No Sweat</h1>
+        <p class="text-white text-center">Giving blood is a seriously ‘no sweat’ exercise. Take a rest day to donate,
+            and then you can get straight back into even the most committed new year fitness regime. A routine that
+            feels great – while being kind to money, time and energy levels.</p>
+        <a href="{% url 'core:register_donor' %}" class="btn btn-danger btn-lg register-button">Register Now</a>
+    </div>
+    <img class="img img-fluid" src="{% static 'img/blood_donor.png' %}">
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends "form.html" %}
+
+{% block content %}
+    <p class="alert alert-danger">
+        By reserving you acknowledge that
+    </p>
+    <div class="card">
+        <ul class="list-group list-group-flush">
+            {% for question in questions %}
+                <li class="list-group-item">{{ question }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {{ block.super }}
+{% endblock content %}
